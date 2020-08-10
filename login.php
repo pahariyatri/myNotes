@@ -41,8 +41,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/app/include/bootstrap4.css">
 
     <title>Login</title>
   </head>
@@ -66,24 +66,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div> ';
     }
     ?>
-
+    
+   
+  
     <div class="container my-4">
-     <h1 class="text-center">Login to our website</h1>
-     <form action="/app/login.php" method="post">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
-            
+        <div class="row justify-content-md-center">
+            <div class="col-md-12 col-lg-8">
+             <h1 class="text-center">Login to our website</h1>
+             <form action="/app/login.php" method="post">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+                    
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+               
+                 
+                <button type="submit" class="btn btn-primary">Login</button>
+                <small  class="form-text text-muted">Create an new account? <a href="/app/signup.php">Sign Up</a></small>
+        		
+             </form>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password">
-        </div>
-       
-         
-        <button type="submit" class="btn btn-primary">Login</button>
-		<a class="btn btn-primary" href="/app/signup.php">Signup</a>
-     </form>
     </div>
 
     <!-- Optional JavaScript -->

@@ -25,10 +25,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             //INSERT INTO `user` (`id`, `username`, `password`, `dt`) VALUES ('1', 'Abc', 'Abc', current_timestamp());
 
             $sql = "INSERT INTO `user` ( `username`, `password`, `dt`) VALUES ('$username', '$hash', current_timestamp())";
-            echo "$sql";
+            // echo "$sql";
             $result = mysqli_query($conn, $sql);
             if ($result){
                 $showAlert = true;
+                header("location: /app/login.php");
             }
         }
         else{
@@ -46,10 +47,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/app/include/bootstrap4.css">
 
-    <title>SignUp</title>
+
+    <title>iNotes-SignUp</title>
   </head>
   <body>
     <?php require 'include/nav.php' ?>
@@ -73,26 +75,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     ?>
 
     <div class="container my-4">
-     <h1 class="text-center">Signup to our website</h1>
-     <form action="/app/signup.php" method="POST">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" maxlength="11" class="form-control" id="username" name="username" aria-describedby="emailHelp">
-            
+        <div class="row justify-content-md-center">
+            <div class="col-md-12 col-lg-8">
+                 <h1 class="text-center">Signup to our website</h1>
+                 <form action="/app/signup.php" method="POST">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" maxlength="11" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" maxlength="23" class="form-control" id="password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="cpassword">Confirm Password</label>
+                        <input type="password" class="form-control" id="cpassword" name="cpassword">
+                        <small id="emailHelp" class="form-text text-muted">Make sure to type the same password</small>
+                    </div>
+                     
+                    <button type="submit" name="SignUp" class="btn btn-primary">SignUp</button>
+                     <small  class="form-text text-muted">Already have an account?<a href="/app/login.php"> Log in</a></small>
+                    
+                 </form>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" maxlength="23" class="form-control" id="password" name="password">
-        </div>
-        <div class="form-group">
-            <label for="cpassword">Confirm Password</label>
-            <input type="password" class="form-control" id="cpassword" name="cpassword">
-            <small id="emailHelp" class="form-text text-muted">Make sure to type the same password</small>
-        </div>
-         
-        <button type="submit" name="SignUp" class="btn btn-primary">SignUp</button>
-     </form>
-    </div>
+        
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

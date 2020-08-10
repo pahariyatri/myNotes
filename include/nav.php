@@ -1,6 +1,10 @@
+
 <?php 
+
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
   $loggedin= true;
+
+ 
 }
 else{
   $loggedin = false;
@@ -16,14 +20,17 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <li class="nav-item active">
         <a class="nav-link" href="/app/index.php">Home <span class="sr-only">(current)</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/app/user_notes.php">My Notes</a>
+      </li>
+  
 
-      
       <li class="nav-item">
         <a class="nav-link" href="/app/form.php">Add Notes</a>
-      </li>
-     
-        
-  </ul>';
+      </li>        
+  </ul>
+';
+
     
 	if(!$loggedin){
       echo '
@@ -32,9 +39,15 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	 }
       if($loggedin){		
       echo '
-	  <a class="btn btn-outline-success mr-2 my-sm-2" href="/app/logout.php">Logout</a>';
+	  <a class="btn btn-outline-success mr-2 my-sm-2" href="/app/logout.php">Logout</a>
+    ';
     }
 	
   echo '</div>
+
+
 </nav>';
+
 ?>
+
+
